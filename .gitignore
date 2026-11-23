@@ -1,0 +1,46 @@
+.venv/
+__pycache__/
+data/plantvillage/
+data/field/
+models/*.onnx
+*.pyc
+
+# Dependencies
+node_modules/
+venv/
+env/
+.venv*/
+
+# Python build / caches
+*.pyo
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ipynb_checkpoints/
+
+# Build output
+dist/
+build/
+.next/
+.cache/
+
+# Models & large data
+models/*.pt
+models/*.pth
+models/*.h5
+models/*.pkl
+models/*.tflite
+*.zip
+*.tar.gz
+
+# Environment / secrets
+.env
+.env.*
+!.env.example
+
+# Logs & OS / editor files
+*.log
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

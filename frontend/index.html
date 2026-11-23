@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ShambaIQ</title>
+<style>
+  :root { --green:#2e7d32; --bg:#f5f7f2; }
+  * { box-sizing:border-box; }
+  body { margin:0; font-family:system-ui,sans-serif; background:var(--bg); color:#1b1b1b; font-size:18px; }
+  header { background:var(--green); color:#fff; padding:14px 16px; display:flex; justify-content:space-between; align-items:center; }
+  header h1 { margin:0; font-size:22px; }
+  header button { background:#fff; color:var(--green); border:0; border-radius:8px; padding:8px 12px; font-size:16px; }
+  main { max-width:560px; margin:auto; padding:12px; }
+  section { background:#fff; border-radius:12px; padding:16px; margin-bottom:14px; box-shadow:0 1px 3px #0002; }
+  h2 { margin:0 0 10px; font-size:20px; }
+  label { display:block; margin:8px 0 4px; }
+  input, select { width:100%; padding:12px; font-size:18px; border:1px solid #bbb; border-radius:8px; }
+  .btn { width:100%; margin-top:12px; padding:14px; font-size:18px; background:var(--green); color:#fff; border:0; border-radius:10px; }
+  .out { margin-top:12px; white-space:pre-wrap; }
+  .tag { display:inline-block; padding:2px 8px; border-radius:6px; background:#e8f5e9; }
+</style>
+</head>
+<body>
+<header><h1>ShambaIQ</h1><button id="lang">Kiswahili</button></header>
+<main>
+  <section>
+    <h2 data-t="doctor">Crop Doctor</h2>
+    <label data-t="photo">Take a photo of one sick leaf</label>
+    <input type="file" id="photo" accept="image/*" capture="environment">
+    <button class="btn" onclick="diagnose()" data-t="check">Check my crop</button>
+    <div class="out" id="doctorOut"></div>
+  </section>
+  <section>
+    <h2 data-t="prices">Market prices</h2>
+    <label data-t="crop">Crop</label>
+    <select id="crop"><option>maize</option><option>tomato</option><option>potato</option></select>
+    <label data-t="county">County</label>
+    <input id="county" value="Nakuru">
+    <button class="btn" onclick="prices()" data-t="forecast">See price outlook</button>
+    <div class="out" id="priceOut"></div>
+  </section>
+  <section>
+    <h2 data-t="plan">This week's plan</h2>
+    <label data-t="yield">Expected harvest (kg)</label>
+    <input id="yield" type="number" value="1000">
+    <button class="btn" onclick="plan()" data-t="getplan">Get my plan</button>
+    <div class="out" id="planOut"></div>
+  </section>
+</main>
+<script>
+const T = {
+  en: {doctor:"Crop Doctor", photo:"Take a photo of one sick leaf", check:"Check my crop", prices:"Market prices",
+       crop:"Crop", county:"County", forecast:"See price outlook", plan:"This week's plan", yield:"Expected harvest (kg)",
+       getplan:"Get my plan", up:"Rising", down:"Falling", flat:"Stable", conf:"Confidence"},
+  sw: {doctor:"Daktari wa Mimea", photo:"Piga picha ya jani moja lenye ugonjwa", check:"Kagua mmea wangu", prices:"Bei za soko",
+       crop:"Zao", county:"Kaunti", forecast:"Ona mwelekeo wa bei", plan:"Mpango wa wiki hii", yield:"Mavuno yanayotarajiwa (kilo)",
+       getplan:"Pata mpango wangu", up:"Inapanda", down:"Inashuka", flat:"Thabiti", conf:"Uhakika"}
+};
+let lang = "en", lastDiagnosis = null;
+const $ = id => document.getElementById(id);
+function applyLang() {
+  document.querySelectorAll("[data-t]").forEach(el => el.textContent = T[lang][el.dataset.t]);
+  $("lang").textContent = lang === "en" ? "Kiswahili" : "English";
+}
+$("lang").onclick = () => { lang = lang === "en" ? "sw" : "en"; applyLang(); };
+
+async function diagnose() {
+  const f = $("photo").files[0]; if (!f) return;
+  const fd = new FormData(); fd.append("image", f); fd.append("language", lang);
+  const r = await fetch("/diagnose", {method:"POST", body:fd}); const d = await r.json();
+  if (!r.ok) { $("doctorOut").textContent = d.detail; return; }
+  lastDiagnosis = d;
+  $("doctorOut").innerHTML = `<b>${d.crop}: ${d.condition}</b> <span class="tag">${T[lang].conf} ${(d.confidence*100).toFixed(0)}%</span>\n\n• ` + d.advice.join("\n• ");
+}
+async function prices() {
+  const r = await fetch(`/price-forecast?crop=${$("crop").value}&county=${encodeURIComponent($("county").value)}`);
+  const d = await r.json();
+  if (!r.ok) { $("priceOut").textContent = d.detail; return; }
+  $("priceOut").innerHTML = `<b>${T[lang][d.trend]}</b> (${d.change_pct}%)\nKSh ${d.last_price}/kg → KSh ${d.weeks.at(-1).price}/kg`;
+}
+async function plan() {
+  const body = {crop:$("crop").value, base_yield_kg:+$("yield").value, county:$("county").value, language:lang, diagnosis:lastDiagnosis};
+  const r = await fetch("/dashboard", {method:"POST", headers:{"Content-Type":"application/json"}, body:JSON.stringify(body)});
+  const d = await r.json();
+  $("planOut").textContent = r.ok ? "• " + d.messages.join("\n• ") : d.detail;
+}
+applyLang();
+</script>
+</body>
+</html>

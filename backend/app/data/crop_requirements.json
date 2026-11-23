@@ -1,0 +1,31 @@
+{
+  "_comment": "Starter crop requirements for the rule-based Planting Advisor. Values are general planning ranges to be checked against KALRO / Ministry of Agriculture crop guides before the pilot.",
+  "maize": {
+    "seasons": [[3, 4], [10, 11]],
+    "min_rain_first_30_days_mm": 75,
+    "temp_c": [15, 32],
+    "soil_ph": [5.5, 7.5],
+    "days_to_harvest": 120
+  },
+  "tomato": {
+    "seasons": [[2, 4], [9, 11]],
+    "min_rain_first_30_days_mm": 50,
+    "temp_c": [15, 30],
+    "soil_ph": [5.5, 7.0],
+    "days_to_harvest": 90
+  },
+  "potato": {
+    "seasons": [[3, 4], [9, 10]],
+    "min_rain_first_30_days_mm": 60,
+    "temp_c": [10, 25],
+    "soil_ph": [5.0, 6.5],
+    "days_to_harvest": 100
+  },
+  "beans": {
+    "seasons": [[3, 4], [10, 11]],
+    "min_rain_first_30_days_mm": 50,
+    "temp_c": [15, 28],
+    "soil_ph": [6.0, 7.5],
+    "days_to_harvest": 85
+  }
+}

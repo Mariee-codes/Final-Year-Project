@@ -1,0 +1,85 @@
+{
+  "_comment": "Starter advice for PlantVillage tomato, potato and maize classes. yield_impact values are rough planning placeholders, NOT measured figures: review every entry with an extension officer or KALRO guide before the pilot.",
+  "_unsure": {
+    "en": ["The model is not sure about this photo.", "Take a clearer photo of one leaf in daylight, or show the plant to an agricultural extension officer."],
+    "sw": ["Mfumo hauna uhakika kuhusu picha hii.", "Piga picha nyingine ya jani moja mchana, au mwonyeshe afisa wa ugani wa kilimo."]
+  },
+  "_healthy": {
+    "en": ["The plant looks healthy.", "Keep checking leaves weekly and remove any that show spots."],
+    "sw": ["Mmea unaonekana kuwa na afya.", "Endelea kukagua majani kila wiki na uondoe yenye madoa."]
+  },
+  "_no_advice": {
+    "en": ["No treatment advice is stored for this disease yet. Please consult an extension officer."],
+    "sw": ["Bado hakuna ushauri wa tiba kwa ugonjwa huu. Tafadhali wasiliana na afisa wa ugani."]
+  },
+  "Tomato___Late_blight": {
+    "yield_impact": 0.4,
+    "en": ["Remove and destroy infected leaves and plants.", "Avoid wetting leaves; water at the base.", "Spray a recommended fungicide as advised by an agro-dealer or extension officer."],
+    "sw": ["Ondoa na uharibu majani na mimea iliyoathirika.", "Usimwagie majani maji; mwagilia kwenye shina.", "Nyunyizia dawa ya kuvu inayopendekezwa na muuzaji wa pembejeo au afisa wa ugani."]
+  },
+  "Tomato___Early_blight": {
+    "yield_impact": 0.2,
+    "en": ["Remove lower infected leaves.", "Rotate crops; do not plant tomatoes or potatoes in the same place next season.", "Use a recommended fungicide if spots spread."],
+    "sw": ["Ondoa majani ya chini yaliyoathirika.", "Badilisha mazao; usipande nyanya au viazi mahali pamoja msimu ujao.", "Tumia dawa ya kuvu inayopendekezwa madoa yakienea."]
+  },
+  "Tomato___Bacterial_spot": {
+    "yield_impact": 0.2,
+    "en": ["Remove infected leaves and avoid working with wet plants.", "Use certified disease-free seed next season.", "Ask an extension officer about copper-based sprays."],
+    "sw": ["Ondoa majani yaliyoathirika na usishughulikie mimea ikiwa na unyevu.", "Tumia mbegu zilizothibitishwa msimu ujao.", "Uliza afisa wa ugani kuhusu dawa zenye shaba."]
+  },
+  "Tomato___Leaf_Mold": {
+    "yield_impact": 0.15,
+    "en": ["Improve air flow by pruning and spacing plants.", "Reduce humidity, especially in greenhouses.", "Remove affected leaves."],
+    "sw": ["Ongeza mzunguko wa hewa kwa kupogoa na kuachanisha mimea.", "Punguza unyevu, hasa kwenye vitalu nyumba.", "Ondoa majani yaliyoathirika."]
+  },
+  "Tomato___Septoria_leaf_spot": {
+    "yield_impact": 0.15,
+    "en": ["Remove spotted lower leaves.", "Mulch to stop soil splashing onto leaves.", "Use a recommended fungicide if it spreads."],
+    "sw": ["Ondoa majani ya chini yenye madoa.", "Weka matandazo kuzuia udongo kurukia majani.", "Tumia dawa ya kuvu inayopendekezwa ukienea."]
+  },
+  "Tomato___Spider_mites Two-spotted_spider_mite": {
+    "yield_impact": 0.15,
+    "en": ["Spray leaves (especially undersides) with clean water.", "Ask an agro-dealer for a recommended miticide if damage continues."],
+    "sw": ["Nyunyizia majani maji safi, hasa upande wa chini.", "Uliza muuzaji wa pembejeo dawa ya utitiri ikiwa uharibifu unaendelea."]
+  },
+  "Tomato___Target_Spot": {
+    "yield_impact": 0.15,
+    "en": ["Remove infected leaves and plant debris.", "Improve spacing for air flow.", "Use a recommended fungicide if needed."],
+    "sw": ["Ondoa majani na mabaki ya mimea yaliyoathirika.", "Ongeza nafasi kati ya mimea.", "Tumia dawa ya kuvu inayopendekezwa ikihitajika."]
+  },
+  "Tomato___Tomato_Yellow_Leaf_Curl_Virus": {
+    "yield_impact": 0.5,
+    "en": ["Uproot and destroy infected plants; the virus cannot be cured.", "Control whiteflies, which spread the virus.", "Plant tolerant varieties next season."],
+    "sw": ["Ng'oa na uharibu mimea iliyoathirika; virusi havitibiki.", "Dhibiti inzi weupe wanaoeneza virusi.", "Panda aina zinazostahimili msimu ujao."]
+  },
+  "Tomato___Tomato_mosaic_virus": {
+    "yield_impact": 0.3,
+    "en": ["Remove infected plants.", "Wash hands and tools after handling plants.", "Use clean, certified seed."],
+    "sw": ["Ondoa mimea iliyoathirika.", "Osha mikono na vifaa baada ya kushika mimea.", "Tumia mbegu safi zilizothibitishwa."]
+  },
+  "Potato___Late_blight": {
+    "yield_impact": 0.5,
+    "en": ["Remove and destroy infected plants quickly.", "Spray a recommended fungicide during wet weather.", "Harvest early if the disease spreads and store only healthy tubers."],
+    "sw": ["Ondoa na uharibu mimea iliyoathirika haraka.", "Nyunyizia dawa ya kuvu inayopendekezwa wakati wa mvua.", "Vuna mapema ugonjwa ukienea na uhifadhi viazi vyenye afya pekee."]
+  },
+  "Potato___Early_blight": {
+    "yield_impact": 0.2,
+    "en": ["Remove infected leaves.", "Rotate crops and keep plants well fed.", "Use a recommended fungicide if spots spread."],
+    "sw": ["Ondoa majani yaliyoathirika.", "Badilisha mazao na lisha mimea vizuri.", "Tumia dawa ya kuvu inayopendekezwa madoa yakienea."]
+  },
+  "Corn_(maize)___Common_rust_": {
+    "yield_impact": 0.1,
+    "en": ["Plant resistant maize varieties next season.", "Ask an extension officer whether spraying is worthwhile for your field."],
+    "sw": ["Panda aina za mahindi zinazostahimili msimu ujao.", "Uliza afisa wa ugani kama kunyunyizia dawa kunafaa shambani kwako."]
+  },
+  "Corn_(maize)___Northern_Leaf_Blight": {
+    "yield_impact": 0.2,
+    "en": ["Rotate maize with legumes such as beans.", "Bury or remove crop residue after harvest.", "Plant resistant varieties."],
+    "sw": ["Badilisha mahindi na mikunde kama maharagwe.", "Fukia au ondoa mabaki ya mazao baada ya kuvuna.", "Panda aina zinazostahimili."]
+  },
+  "Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot": {
+    "yield_impact": 0.2,
+    "en": ["Rotate crops and remove residue.", "Plant resistant varieties.", "Consult an extension officer about fungicides."],
+    "sw": ["Badilisha mazao na ondoa mabaki.", "Panda aina zinazostahimili.", "Wasiliana na afisa wa ugani kuhusu dawa za kuvu."]
+  }
+}
